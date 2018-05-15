@@ -1,0 +1,29 @@
+To *get* note use /get:
+`/get [chat code] [note name]`
+
+To *remove* note use /rm:
+`/rm [chat code] [note name]`
+
+Examples:
+`/get 766ad863cf57a225a055535e5ad815fb to-do-list`
+`/rm 766ad863cf57a225a055535e5ad815fb to-do-list`
+
+
+To *create* new note use /add:
+`/add [note name]
+[Title]
+[Multiline
+Text]`
+
+Example:
+`/add test
+Look!
+I can write here some text.
+It's great, isn't it?`
+
+
+You can download archive with your notes: /get\_archive.
+
+
+After adding new notes bot sends *chat code* and *note's name*.
+Use it to share your note with somebody.

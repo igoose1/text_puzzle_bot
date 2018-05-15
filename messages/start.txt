@@ -1,0 +1,15 @@
+This bot helps to create text puzzles or notes.
+
+To *get* note use /get:
+`/get [chat code] [note name]`
+
+To *remove* note use /rm:
+`/rm [chat code] [note name]`
+
+To *create* new note use /add:
+`/add [note name]
+[Title]
+[Multiline
+Text]`
+
+For more information: /help.
