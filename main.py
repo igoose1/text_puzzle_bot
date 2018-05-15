@@ -78,7 +78,7 @@ def get(message):
             with open('messages/help.txt', 'r') as file:
                 text = file.read()
         else:
-            chat_code, note_code = arguments[1:]
+            chat_code, note_code = arguments[1], ' '.join(arguments[2:])
             path = get_path(chat_code, note_code)
             if command == 'rm' and get_hash(message.chat.id) == chat_code:
                 os.remove(path) if os.path.exists(path) else None
