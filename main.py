@@ -10,7 +10,12 @@ logging.basicConfig(
     format='%(filename)s:%(lineno)d# %(levelname)-8s [%(asctime)s]  %(message)s',
     level=logging.INFO)
 
-bot = telebot.TeleBot('TOKEN_TOKEN_TOKEN')
+config = {
+    'token': 'TOKEN',
+    'username': 'text_puzzles_bot'
+}
+
+bot = telebot.TeleBot(config['token'])
 
 # telebot.apihelper.proxy = {
 #     'https': 'socks5://proxy:e9eM04JNIEZ2@81.2.240.15:1337'}
@@ -38,6 +43,11 @@ def get_note(chat_code, note_code):
     res = 'Chat code: `{}`\nNote name: `{}`\n\n*{}*\n\n{}'.format(
         chat_code, note_code, title, text)
     return res
+
+
+def get_command(message):
+    return message.text.replace(
+        '@{}'.format(config['username']), ' ').split(' ')[0][1:]
 
 
 @bot.message_handler(commands=['add'])
@@ -71,7 +81,7 @@ def add(message):
 @bot.message_handler(commands=['rm', 'get'])
 def get(message):
     try:
-        command = message.text.split(' ')[0][1:]
+        command = get_command(message)
         text = ''
         arguments = message.text.split(' ')
         if len(arguments) < 3:
@@ -108,7 +118,7 @@ def help_start(message):
 @bot.message_handler(commands=['help', 'start'])
 def help_start(message):
     try:
-        command = message.text.split(' ')[0][1:]
+        command = get_command(message)
         text = ''
         with open('messages/{}.txt'.format(command), 'r') as file:
             text = file.read()
