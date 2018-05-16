@@ -40,7 +40,7 @@ def get_note(chat_code, note_code):
     except FileNotFoundError:
         title = 'Not found'
 
-    res = 'Chat code: `{}`\nNote name: `{}`\n\n*{}*\n\n{}'.format(
+    res = 'Chat code: `{}`\nNote name: `{}`\n\n*{}*\n{}'.format(
         chat_code, note_code, title, text)
     return res
 
