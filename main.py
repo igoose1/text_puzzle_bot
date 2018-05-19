@@ -95,7 +95,7 @@ def get(message):
             text = get_note(chat_code, note_code)
 
         bot.send_message(message.chat.id, text,
-                         reply_to_message_id=message.message_id, parse_mode='Markdown')
+                         reply_to_message_id=message.message_id)
     except Exception as exception:
         logging.error(exception)
 
